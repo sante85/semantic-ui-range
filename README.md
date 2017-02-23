@@ -15,7 +15,7 @@ Add the range.js and range.css files from this repo to your project.
 
 Alternatively, you can install using Bower:
 ```
-bower install tyleryasaka/semantic-ui-range --save
+bower install Buzut/semantic-ui-range --save
 ```
 
 ###Step 2
