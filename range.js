@@ -12,7 +12,7 @@
         var
             $allModules    = $(this),
 
-            offset         = 10,
+            offsetPerc = 2.9,
 
             query          = arguments[0],
             methodInvoked  = (typeof query === 'string'),
@@ -130,19 +130,11 @@
                         var ratio = (currentPos - startPos) / (endPos - startPos);
                         // reversed when vertical
                         if (vertical) ratio = 1 - ratio;
-						/*var range = settings.max - settings.min;
-						 var difference = Math.round(ratio * range / step) * step;
-						 // Use precision to avoid ugly Javascript floating point rounding issues
-						 // (like 35 * .01 = 0.35000000000000003)
-						 difference = Math.round(difference * precision) / precision;
-						 return difference + settings.min;*/
                         return ratio;
                     },
 
                     determinePosition: function(value) {
                         var ratio = (value - settings.min) / (settings.max - settings.min);
-                        //if (vertical) return Math.round(ratio * $(inner).height()) - offset;
-                        //else return Math.round(ratio * $(inner).width()) + $(trackLeft).position().left - offset;
                         return ratio * 100;
                     },
 
@@ -156,7 +148,6 @@
                     },
 
                     setPosition: function(value) {
-                        var offsetPerc = 2.9;
                         $(thumb).css({left: String(value - offsetPerc) + '%'});
                         $(trackLeft).css({width: '100%'});
                     },
